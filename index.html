@@ -8,7 +8,7 @@
    <META NAME="author" CONTENT="Tecnicas de Programacion para Internet T.E.">
    <META NAME="keywords" CONTENT="tecnicas programacion internet asignatura carrera ingenieria sistemas informaticos">
    <META NAME="description" CONTENT="pagina principal de la asignatura tecnicas programacion para internet t.e. carrera ingenieria sistemas informaticos">
-</HEAD>
+  </HEAD>
 <BODY 	BACKGROUND="imagenes/fondo_index.jpg" 
 	TEXT="#FFFFFF" 	LINK="#33FFFF" 
 	VLINK="#FF9900" ALINK="#33CC00">
@@ -29,7 +29,7 @@
  </P>
 <BR>
 <H2 align="CENTER">
-   Bienvenid@s al sitio Web
+   Bienvenid@s al sitio Web <span id="contador" style="color:blue;"></span>
 </H2>
 <BR>
 <P ALIGN="JUSTIFY">
@@ -54,5 +54,18 @@
 </CENTER>
 <BR>
 <BR>
+  <script>
+    var regexpc=new RegExp(/visitas=[1-9]*[0-9]+/);
+    var num=0;
+    var arrcookie=regexpc.exec(document.cookie);
+    
+    if(arrcookie==null)
+       document.Cookie="visitas=0";
+    
+    arrcookie = regexpc.exec(document.Cookie);
+    var num=parseInt( arrcookie[0].substring(8) ) + 1;
+    var contador=document.getElementById("contador");
+    contador.innerHTML=" Ha visitado esta página por "+num+"a. vez.";
+    </script>
 </BODY>
 </HTML>
